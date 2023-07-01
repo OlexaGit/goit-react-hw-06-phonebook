@@ -3,9 +3,9 @@ import { createAction, createReducer } from '@reduxjs/toolkit';
 
 const increment = createAction('myValue/increment');
 const contacts = createAction('arrayContacts/contacts');
-const filter = createAction('filterValue/filter');
+const filter = createAction('valueFilter/filter');
 
-const myReducerTest = createReducer(0, {
+const myReducerTest = createReducer(10, {
   [increment]: (state, action) => state + action.payload,
 });
 const contactsReducer = createReducer([], {
@@ -19,7 +19,7 @@ export const store = configureStore({
   reducer: {
     myValue: myReducerTest,
     arrayContacts: contactsReducer,
-    filterValue: filterReducer,
+    valueFilter: filterReducer,
   },
 });
 
