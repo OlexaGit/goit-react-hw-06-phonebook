@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './Form.module.css';
 import { addContact } from 'redux/contactSlice';
 
@@ -24,7 +24,6 @@ export const Form = () => {
       number,
     };
     dispatch(addContact(contact));
-    // onSubmitForm(name, number);
     reset();
   };
 
