@@ -15,7 +15,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import contactsReducer from './contactSlice';
 
 const persistConfig = {
-  key: 'contact',
+  key: 'contacts',
   storage,
 };
 
@@ -64,8 +64,3 @@ export let persistor = persistStore(store);
 //     valueFilter: filterReducer,
 //   },
 // });
-
-// {
-//   contacts: [],
-//   filter: ""
-// }
