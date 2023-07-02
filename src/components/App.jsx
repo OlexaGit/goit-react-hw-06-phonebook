@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
-import Form from './Form/Form';
+import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 import Filter from './Filter/Filter';
 // import { increment, contacts, filter } from 'redux/store';

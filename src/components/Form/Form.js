@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import css from './Form.module.css';
 // import { useSelector } from 'react-redux';
 
-export default function Form({ onSubmitForm }) {
+export const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const nameInputId = nanoid();
@@ -17,7 +17,7 @@ export default function Form({ onSubmitForm }) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    onSubmitForm(name, number);
+    // onSubmitForm(name, number);
     reset();
   };
 
@@ -59,4 +59,4 @@ export default function Form({ onSubmitForm }) {
       </form>
     </>
   );
-}
+};
