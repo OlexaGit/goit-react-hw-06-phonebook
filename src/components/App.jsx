@@ -5,8 +5,12 @@ import Notiflix from 'notiflix';
 import Form from './Form/Form';
 import Contacts from './Contacts/Contacts';
 import Filter from './Filter/Filter';
+// import { increment, contacts, filter } from 'redux/store';
+// import { useSelector, useDispatch } from 'react-redux';
 
-export function App() {
+export const App = () => {
+  // const dispatch = useDispatch;
+  // const value = useSelector(state => state.myValue);
   const [contacts, setContacts] = useState([
     // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
     // { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -70,6 +74,8 @@ export function App() {
   return (
     <div>
       <h1>Phonebook</h1>
+      {/* {value}
+      <button onClick={() => dispatch(increment(1))}>increment</button> */}
       <Form onSubmitForm={handleNameMatch} />
       <h2>Contacts</h2>
       <Filter valueFilter={filter} onChange={changeFilter} />
@@ -79,7 +85,7 @@ export function App() {
       />
     </div>
   );
-}
+};
 App.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import { useSelector, useDispatch } from 'react-redux';
 import css from './Form.module.css';
+// import { useSelector } from 'react-redux';
 
 export default function Form({ onSubmitForm }) {
   const [name, setName] = useState('');
