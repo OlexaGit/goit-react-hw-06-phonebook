@@ -1,6 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { filterByValue } from 'redux/filterSlice';
 import css from './Filtr.module.css';
 
-const Filter = ({ valueFilter, onChange, searchInputId }) => {
+export const Filter = ({ searchInputId }) => {
+  const dispatch = useDispatch();
+  const changeFilter = event => {
+    const { value } = event.currentTarget;
+    dispatch(filterByValue(value));
+    // console.log(value);
+  };
   return (
     <div className={css.form}>
       <label htmlFor={searchInputId}>Find contacts by name</label>
@@ -8,11 +16,9 @@ const Filter = ({ valueFilter, onChange, searchInputId }) => {
         className={css.formInput}
         type="text"
         name="filter"
-        value={valueFilter}
-        onChange={onChange}
+        onChange={changeFilter}
         id={searchInputId}
       />
     </div>
   );
 };
-export default Filter;

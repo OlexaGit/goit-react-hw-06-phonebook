@@ -3,10 +3,14 @@ import css from './Contacts.module.css';
 // import { increment, contacts, filter } from 'redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/contactSlice';
+import { filterSelectContacts } from 'redux/filterSlice';
+import { useState } from 'react';
 
 export const Contacts = () => {
+  // const [contacts, setContacts] = useState([]);
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const filter = useSelector(filterSelectContacts);
   const handleDelete = id => dispatch(deleteContact(id));
   return (
     <div className={css.form}>

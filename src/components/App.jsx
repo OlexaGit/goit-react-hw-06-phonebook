@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
-import Filter from './Filter/Filter';
+import { Filter } from './Filter/Filter';
 // import { increment, contacts, filter } from 'redux/store';
 // import { useSelector, useDispatch } from 'react-redux';
 
@@ -62,6 +62,7 @@ export const App = () => {
       <section>
         <h2>Contacts</h2>
         {/* <Filter valueFilter={filter} onChange={changeFilter} /> */}
+        <Filter />
         {/* <Contacts
           contacts={getVisibleContacts()}
           onDeleteContact={deleteContact}
