@@ -22,15 +22,15 @@ import filterReducer from './filterSlice';
 // });
 
 const persistConfig = {
-  key: 'contacts',
+  key: 'root',
   storage,
 };
 
 const persistedReducer = persistReducer(
   persistConfig,
   // reducers,
-  contactReducer
-  // filterReducer
+  contactReducer,
+  filterReducer
 );
 
 export const store = configureStore({
