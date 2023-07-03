@@ -9,16 +9,16 @@ import { useState } from 'react';
 export const Contacts = () => {
   // const [contacts, setContacts] = useState([]);
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(filterSelectContacts);
+  const { contacts } = useSelector(selectContacts);
+  const { filter } = useSelector(filterSelectContacts);
   const handleDelete = id => dispatch(deleteContact(id));
 
-  console.log(contacts.contacts);
+  console.log(contacts);
   console.log(filter);
   return (
     <div className={css.form}>
       <ul>
-        {contacts.contacts.map(({ id, name, number }) => (
+        {contacts.map(({ id, name, number }) => (
           <li key={id} className={css.formList}>
             @ {name}: {number}
             <button

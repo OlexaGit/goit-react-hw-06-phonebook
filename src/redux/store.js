@@ -1,4 +1,3 @@
-// import { combineReducers } from 'redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -26,21 +25,7 @@ const reducers = combineReducers({
   filter: filterReducer,
 });
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  reducers
-  // contactReducer,
-  // filterReducer
-);
-// ****************
-// export const store = configureStore({
-//   reducer: {
-//     contacts: contactReducer,
-//     filter: filterReducer,
-//   },
-// });
-
-// **********
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
   reducer: persistedReducer,
