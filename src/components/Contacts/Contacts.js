@@ -12,10 +12,13 @@ export const Contacts = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(filterSelectContacts);
   const handleDelete = id => dispatch(deleteContact(id));
+
+  console.log(contacts.contacts);
+  console.log(filter);
   return (
     <div className={css.form}>
       <ul>
-        {contacts.map(({ id, name, number }) => (
+        {contacts.contacts.map(({ id, name, number }) => (
           <li key={id} className={css.formList}>
             @ {name}: {number}
             <button

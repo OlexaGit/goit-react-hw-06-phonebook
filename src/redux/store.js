@@ -16,22 +16,31 @@ import { PersistGate } from 'redux-persist/integration/react';
 import contactReducer from './contactSlice';
 import filterReducer from './filterSlice';
 
-// const reducers = combineReducers({
-//   contactReducer,
-//   filterReducer,
-// });
-
 const persistConfig = {
   key: 'root',
   storage,
 };
 
+const reducers = combineReducers({
+  contacts: contactReducer,
+  filter: filterReducer,
+});
+
 const persistedReducer = persistReducer(
   persistConfig,
-  // reducers,
-  contactReducer,
-  filterReducer
+  reducers
+  // contactReducer,
+  // filterReducer
 );
+// ****************
+// export const store = configureStore({
+//   reducer: {
+//     contacts: contactReducer,
+//     filter: filterReducer,
+//   },
+// });
+
+// **********
 
 export const store = configureStore({
   reducer: persistedReducer,
