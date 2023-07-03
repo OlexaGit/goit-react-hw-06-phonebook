@@ -1,8 +1,9 @@
 import { deleteContact } from 'redux/contactSlice';
-import css from './Contacts.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/contactSlice';
 import { filterSelectContacts } from 'redux/filterSlice';
+import PropTypes from 'prop-types';
+import css from './Contacts.module.css';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -18,8 +19,7 @@ export const Contacts = () => {
       contact.name.toLocaleLowerCase().includes(normalizedFilter)
     );
   }
-  console.log(arrayContacts);
-  console.log(filter);
+
   return (
     <div className={css.form}>
       <ul>
@@ -38,4 +38,17 @@ export const Contacts = () => {
       </ul>
     </div>
   );
+};
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  filter: PropTypes.string,
+  name: PropTypes.string,
+  number: PropTypes.string,
 };

@@ -7,8 +7,8 @@ export const Filter = ({ searchInputId }) => {
   const changeFilter = event => {
     const { value } = event.currentTarget;
     dispatch(filterByValue(value));
-    // console.log(value);
   };
+
   return (
     <div className={css.form}>
       <label htmlFor={searchInputId}>Find contacts by name</label>

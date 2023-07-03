@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import Notiflix from 'notiflix';
+import { addContact, selectContacts } from 'redux/contactSlice';
 import css from './Form.module.css';
-import { addContact } from 'redux/contactSlice';
 
 export const Form = () => {
   const dispatch = useDispatch();
+  const { contacts } = useSelector(selectContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const nameInputId = nanoid();
@@ -23,7 +25,12 @@ export const Form = () => {
       name,
       number,
     };
-    dispatch(addContact(contact));
+    const normalizedFind = name.toLocaleLowerCase();
+    contacts.find(
+      contact => contact.name.toLocaleLowerCase() === normalizedFind
+    )
+      ? Notiflix.Notify.warning(`${name} is already in contacts!`)
+      : dispatch(addContact(contact));
     reset();
   };
 

@@ -13,12 +13,12 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import contactReducer from './contactSlice';
 import filterReducer from './filterSlice';
-
 console.log(PersistGate);
 
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['filter'],
 };
 
 const reducers = combineReducers({

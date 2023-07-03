@@ -9,17 +9,7 @@ const filterSlice = createSlice({
   initialState: initialStateFilter,
   reducers: {
     filterByValue(state, { payload: value }) {
-      console.log(value);
       state.filter = value;
-      console.log(state.filter.filter);
-
-      //   const normalizedFilter = state.filter.toLocaleLowerCase();
-      //   state.contacts = state.contacts.filter(contact =>
-      //     contact.name.toLocaleLowerCase().includes(normalizedFilter)
-      //   );
-      //  state.contacts.filter(contact =>
-      //   contact.name.toLocaleLowerCase().includes(normalizedFilter)
-      // );
     },
   },
 });
